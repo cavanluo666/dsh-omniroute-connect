@@ -25,7 +25,7 @@
 ## 安装
 
 ```bash
-git clone https://github.com/<your-name>/dsh-omniroute-connect.git
+git clone https://github.com/cavanluo666/dsh-omniroute-connect.git
 dsh plugin --profile web add link:./dsh-omniroute-connect
 ```
 
