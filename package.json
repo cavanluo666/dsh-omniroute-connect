@@ -1,0 +1,58 @@
+{
+  "name": "dsh-omniroute-connect",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "自带路由与失败回退的模型网关：把多个 OpenAI 兼容上游聚合成 DSH 的一个 provider —— a self-contained multi-upstream gateway for DeepSeek Harness.",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "transport.js",
+    "adapter.js",
+    "store.js",
+    "gateway.js",
+    "gateway-model.js",
+    "gateway-router.js",
+    "gateway-breaker.js",
+    "gateway-upstream.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node run-tests.mjs"
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-test-renderer": "^18.3.1"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "omniroute",
+    "gateway",
+    "model-router",
+    "failover"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "license": "GPL-3.0-or-later"
+}

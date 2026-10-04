@@ -1,0 +1,13 @@
+# 统一按 LF 存储，Windows 检出也用 LF，避免跨平台整文件 diff
+* text=auto eol=lf
+
+# 显式声明二进制，别被当文本处理
+*.png binary
+*.ico binary
+*.jpg binary
+*.gif binary
+*.woff binary
+*.woff2 binary
+
+# 锁文件在 diff 里不展开，也不参与语言统计
+package-lock.json -diff linguist-generated

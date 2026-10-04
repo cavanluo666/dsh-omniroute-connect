@@ -1,0 +1,19 @@
+# dsh-omniroute-connect bundle patch.
+#
+# 一行 insert 挂载 Host 半身：这个插件**自己就是网关**——它维护一份
+# 上游列表，按策略挑一个发请求，失败自动换下一个，坏了的临时拉闸。
+# 同时注册 `omniroute` provider、模型目录发现，以及
+# `/api/omniroute-connect/*` 上的管理页接口。
+#
+# 浏览器半身由 package.json 的 dsh.client 声明，绑定在 name 为裸包名的这一行上。
+#
+# 默认不改动 profile 的默认模型：装上后只是多出一个可选 provider，
+# 在模型选择器里切过去才会用到它。
+#
+# 入口 config 是**默认层**，用户在管理页上的改动写在
+# $DSH_HOME/omniroute-connect/config.json 里并覆盖它。所以这里适合
+# 放部署时预置的上游（比如团队内部的 endpoint），而不是用户自己配的。
+- insert:
+    - id: llm-omniroute
+      name: 'dsh-omniroute-connect'
+      config: {}
